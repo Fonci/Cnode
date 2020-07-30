@@ -1,0 +1,35 @@
+<!--pages/detail/detail.wxml-->
+<view class="wrap">
+	<view class="header">
+		<wxs module="tabFormat" src="../filter/tabFormat.wxs"></wxs>
+		<text class="tabs">{{tabFormat.getTab(detailList.tab)}}</text>
+		<text class="title">{{detailList.title}}</text>
+		<view class="tips">
+			<wxs module="timeFormat" src="../filter/timeFormat.wxs"></wxs>
+			<text> · 发布于{{timeFormat.getTime(detailList.create_at)}}</text>
+			<text> · 作者 {{detailList.author.loginname}} </text>
+			<text> · {{detailList.visit_count}}次浏览</text>
+			<text> · 来自 {{tabFormat.getTab(detailList.tab)}}</text>
+		</view>
+	</view>
+	<view class="content">
+		<view>
+			<rich-text nodes="{{detailList.content}}"></rich-text>
+		</view>
+	</view>
+</view>
+<view class="reply" wx:if='{{replies.length}}'>
+	<view style="background:#f6f6f6;padding:20rpx 0 20rpx 10rpx;">{{replies.length}}回复</view>
+	<view class="reply_list" wx:for="{{replies}}" wx-for-index="index" wx-for-item="item" wx:key='index'>
+		<image class="avatar" src="{{item.author.avatar_url}}"></image>
+		<navigator class="nav" url='/pages/userInfo/userInfo?loginname={{item.author.loginname}}' hover-class="navigator-hover">
+			<text  style="color:#08c;">{{item.author.loginname}}</text>
+		</navigator>
+		<wxs module="timeFormat" src="../filter/timeFormat.wxs"></wxs>
+		<text style="color:#666;" >{{index+1}}楼 · {{timeFormat.getTime(item.create_at)}}</text>
+		<text class='is_author' wx:if="{{loginname==item.author.loginname}}">作者</text>
+		<view style="margin:20rpx 10rpx;">
+			<rich-text nodes="{{item.content}}"></rich-text>
+		</view>
+	</view>
+</view>

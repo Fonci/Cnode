@@ -1,0 +1,17 @@
+var tabFormat = {
+  getTab: function (tab) {
+
+    if (tab == 'good') {
+      return tab = '精华'
+    } if (tab == 'job') {
+      return tab = '招聘'
+    } if (tab == 'ask') {
+      return tab = '问答'
+    } if (tab == 'share') {
+      return tab = '分享'
+    }
+  }
+}
+module.exports = {
+  getTab: tabFormat.getTab
+}

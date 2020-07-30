@@ -1,0 +1,77 @@
+/* pages/home/home.wxss */
+.wrap {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  font-size: 28rpx !important;
+}
+
+.item {
+  background-color: #f6f6f6;
+  width: 100%;
+  padding: 10rpx 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.item_name {
+  padding: 4rpx 8rpx;
+  font-size: 24rpx;
+  border-radius: 5rpx;
+  color: #80bd01;
+  font-size: 28rpx;
+}
+
+.tab_active {
+  background-color: #80bd01;
+  color: white;
+  padding: 4rpx 8rpx;
+  border-radius: 5rpx;
+  font-size: 28rpx;
+}
+
+.list {
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  border-top: 1rpx solid #f0f0f0;
+}
+
+.avatar {
+  width: 70rpx;
+  height: 70rpx;
+  margin-left: 10rpx;
+  vertical-align: middle;
+}
+
+.list>view {
+  height: 100%;
+}
+
+.tabs {
+  background-color: #e5e5e5;
+  padding: 4rpx 8rpx;
+  font-size: 24rpx;
+  border-radius: 5rpx;
+  margin: 0 10rpx;
+}
+.active{
+  background-color: #80bd01;
+  color:white;
+}
+.title {
+  line-height: 70rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mini_avatar {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.load_more {
+  text-align: center;
+  color: gray;
+}

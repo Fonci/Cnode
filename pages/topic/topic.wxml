@@ -1,0 +1,15 @@
+<view class="content">
+	<!-- loginname info -->
+	<view class="user_info">
+		<view style="color:#80bd01;margin:20rpx 0;">{{loginname}}的个人主页</view>
+		<view style="color:#778087;margin:20rpx 0;"> {{loginname}} 最近{{type==created?'创建':'参与'}}的话题 共{{topicList.length}}条</view>
+	</view>
+	<!-- topic list -->
+	<view class="user_topic" wx:for='{{topicList}}' wx:for-item='item' wx:for-index='index' wx:key='index'>
+		<image class='litle_avatar' src="{{item.author.avatar_url}}"></image>
+		<wxs module="timeFormat" src="../filter/timeFormat.wxs"></wxs>
+		<navigator class="topic_title" url='/pages/detail/detail?id={{item.id}}' hover-class="navigator-hover">{{item.title}}
+		</navigator>
+		<text class="tip">{{timeFormat.getTime(item.last_reply_at)}}</text>
+	</view>
+</view>

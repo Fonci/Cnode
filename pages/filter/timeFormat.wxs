@@ -1,0 +1,27 @@
+var timeFormat = {
+  getTime: function (val) {
+    var now = getDate(); //此刻的时间
+    var date = getDate(val) //最后回复的时间-转换格式
+    var time = now - date; //512290973 两个时间之差
+    var year = Math.floor(time / 60000 / 60 / 24 / 30 / 365) // 年
+    var month = Math.floor(time / 60000 / 60 / 24 / 30) //月
+    var day = Math.floor(time / 60000 / 60 / 24) //天
+    var hour = Math.floor(time / 60000 / 60) //小时
+    var minute = Math.floor(time / 60000) //分钟
+    if (year > 1 || year == 1) {
+      return val = year + '年前'
+    } else if (month > 1 || month == 1) {
+      return val = month + '个月前'
+    } else if (day > 1 || day == 1) {
+      return val = day + '天前'
+    } else
+      if (hour > 1 || hour == 1) {
+        return val = hour + '小时前'
+      } else {
+        return val = minute + '分钟前'
+      }
+  }
+}
+module.exports = {
+  getTime: timeFormat.getTime
+}

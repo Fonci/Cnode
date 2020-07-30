@@ -1,0 +1,37 @@
+/* pages/topic/topic.wxss */
+.user_info {
+  width: 100%;
+  padding: 40rpx 20rpx;
+  font-size: 28rpx;
+  background-color: #f6f6f6;
+}
+
+.user_topic {
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #f6f6f6;
+}
+
+.litle_avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 5rpx;
+  vertical-align: middle;
+  margin: 0 20rpx;
+}
+
+.topic_title {
+  width: 70%;
+  font-size: 26rpx;
+  color: #08c;
+  text-align: left;
+}
+
+.tip {
+  width: 15%;
+  text-align: right;
+  line-height: 100rpx;
+  font-size: 24rpx;
+  color: #778087;
+}

@@ -1,0 +1,32 @@
+<!-- 首页 -->
+
+<view class="wrap">
+	<!-- tabs -->
+	<view class="item">
+		<text wx:for="{{itemList}}" wx:for-item='item' wx:for-index='index' wx:key='index'  bindtap="getDataList" data-tab="{{item.tab}}" class="{{item.tab===tab?'tab_active':'item_name'}}">{{item.item}}</text>
+	</view>
+	<!-- list -->
+	<view class="list" wx:for="{{dataList}}" wx-for-index="index" wx-for-item="item" wx:key='index'>
+		<view style="width:22%;line-height: 120rpx;">
+			<block style="width:70rpx;height:70rpx;">
+				<image class="avatar" src="{{item.author.avatar_url}}"></image>
+			</block>
+			<wxs module="tabFormat" src="../filter/tabFormat.wxs"></wxs>
+			<text class="{{item.tab===tab?'tabs active':'tabs'}}">{{tabFormat.getTab(item.tab)}}</text>
+		</view>
+		<view style="width:55%;">
+			<!-- title -->
+			<navigator class="title" url='/pages/detail/detail?id={{item.id}}' hover-class="navigator-hover">{{item.title}}
+			</navigator>
+			<text style="color:#9e78c0;">{{item.reply_count}}</text>
+			<text>/</text>
+			<text style="color:#b4b4b4;">{{item.visit_count}}</text>
+		</view>
+		<view style="width:23%;line-height: 120rpx;text-align:right;color:#778087;">
+			<wxs module="timeFormat" src="../filter/timeFormat.wxs"></wxs>
+			<text style="font-size:26rpx;margin-right:10rpx;">{{timeFormat.getTime(item.last_reply_at)}}</text>
+		</view>
+	</view>
+	<!-- load more -->
+	<view class="load_more" bindtap="loadMore">加载更多👇</view>
+</view>

@@ -1,0 +1,35 @@
+<!--pages/userInfo/userInfo.wxml-->
+<view class="content">
+	<!-- 作者 基本信息 -->
+	<view class="author_info">
+		<image class='avatar' src="{{dataList.avatar_url}}"></image>
+		<text class="loginname">{{dataList.loginname}}</text>
+		<text class="info">140 积分</text>
+		<text class="info">注册时间 {{dataList.create_at}}</text>
+	</view>
+	<!-- 最近创建的话题 -->
+	<view class="topic">最近创建的话题</view>
+	<block wx:if='{{recent_topics.length}}'>
+		<view class="created_topic" wx:for='{{recent_topics}}' wx:for-item='item' wx:for-index='index' wx:key='index'>
+			<image class='litle_avatar' src="{{item.author.avatar_url}}"></image>
+			<wxs module="timeFormat" src="../filter/timeFormat.wxs"></wxs>
+			<navigator class="topic_title" url='/pages/detail/detail?id={{item.id}}' hover-class="navigator-hover">{{item.title}}
+			</navigator>
+			<text class="loginname">{{timeFormat.getTime(item.last_reply_at)}}</text>
+		</view>
+		<navigator class="look_more" url="/pages/topic/topic?loginname={{dataList.loginname}}&type=created"> 查看更多 》</navigator>
+	</block>
+	<view wx:else class="no_topic">无话题</view>
+	<!-- 最近参与的话题 -->
+	<view class="topic">最近参与的话题</view>
+	<block wx:if='{{recent_replies.length}}'>
+		<view class="join_topic" wx:for='{{recent_replies}}' wx:for-item='item' wx:for-index='index' wx:key='index'>
+			<image class='litle_avatar' src="{{item.author.avatar_url}}"></image>
+			<view class="topic_title">{{item.title}}</view>
+			<wxs module="timeFormat" src="../filter/timeFormat.wxs"></wxs>
+			<view class="loginname" style="width:15%;text-align:right;line-height:100rpx;">{{timeFormat.getTime(item.last_reply_at)}}</view>
+		</view>
+		<navigator class="look_more" url="/pages/topic/topic?loginname={{dataList.loginname}}&type=join"> 查看更多 》</navigator>
+	</block>
+	<view wx:else class="no_topic">无话题</view>
+</view>
