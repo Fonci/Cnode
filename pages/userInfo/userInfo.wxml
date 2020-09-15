@@ -25,7 +25,9 @@
 	<block wx:if='{{recent_replies.length}}'>
 		<view class="join_topic" wx:for='{{recent_replies}}' wx:for-item='item' wx:for-index='index' wx:key='index'>
 			<image class='litle_avatar' src="{{item.author.avatar_url}}"></image>
-			<view class="topic_title">{{item.title}}</view>
+				<navigator class="topic_title" url='/pages/detail/detail?id={{item.id}}' hover-class="navigator-hover">{{item.title}}
+			</navigator>
+			<!-- <view class="topic_title">{{item.title}}</view> -->
 			<wxs module="timeFormat" src="../filter/timeFormat.wxs"></wxs>
 			<view class="loginname" style="width:15%;text-align:right;line-height:100rpx;">{{timeFormat.getTime(item.last_reply_at)}}</view>
 		</view>

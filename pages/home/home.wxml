@@ -12,7 +12,12 @@
 				<image class="avatar" src="{{item.author.avatar_url}}"></image>
 			</block>
 			<wxs module="tabFormat" src="../filter/tabFormat.wxs"></wxs>
-			<text class="{{item.tab===tab?'tabs active':'tabs'}}">{{tabFormat.getTab(item.tab)}}</text>
+			<text class="tabs active" wx:if='{{item.top}}'>置顶</text>
+
+		
+				<text class="{{(item.good&&tab=='good')?'tabs active':'tabs'}}" wx:elif="{{item.good&&tab=='good'}}">精华</text>
+
+					<text class="{{item.tab===tab?'tabs active':'tabs'}}" wx:elif='{{item.tab}}'>{{tabFormat.getTab(item.tab)}}</text>
 		</view>
 		<view style="width:55%;">
 			<!-- title -->
@@ -27,6 +32,6 @@
 			<text style="font-size:26rpx;margin-right:10rpx;">{{timeFormat.getTime(item.last_reply_at)}}</text>
 		</view>
 	</view>
-	<!-- load more -->
-	<view class="load_more" bindtap="loadMore">加载更多👇</view>
+	<!-- load more
+	<view class="load_more" bindtap="loadMore">加载更多👇</view> -->
 </view>
